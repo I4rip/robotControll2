@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid p-5">
+        <div class="row">
+            <div class="col-12 p-2">
+                Engine 1 <input type="range" id="en1" name="en1" value="0" min="0" max="100">
+            </div>
+            <div class="col-12 p-2">
+                Engine 2 <input type="range" id="en2" name="en2" value="0" min="0" max="100">
+            </div>
+            <div class="col-12 p-2">
+                Engine 3 <input type="range" id="en3" name="en3" value="0" min="0" max="100">
+            </div>
+            <div class="col-12 p-2">
+                Engine 4 <input type="range" id="en4" name="en4" value="0" min="0" max="100">
+            </div>
+            <div class="col-12 p-2">
+                Engine 5 <input type="range" id="en5" name="en5" value="0" min="0" max="100">
+            </div>
+            <div class="col-12 p-2">
+                Engine 6 <input type="range" id="en6" name="en6" value="0" min="0" max="100">
+            </div>
+            <div class="col-12 p-2">
+                <button class="btn btn-success" id="btnSave">Save</button>
+                <button class="btn btn-success">Run</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#btnSave").click(function(){
+            $.ajax({
+                url:"ajax.php",
+                method:"POST",
+                data:{
+                    save:"save",
+                    en1:$("#en1").val(),
+                    en2:$("#en2").val(),
+                    en3:$("#en3").val(),
+                    en4:$("#en4").val(),
+                    en5:$("#en5").val(),
+                    en6:$("#en6").val(),
+                },
+                success:function(data){
+                }
+                
+            });
+        });
+    </script>
+</body>
+</html>
